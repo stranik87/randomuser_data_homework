@@ -1,4 +1,4 @@
-import get_data
+from get_data import get_data
 
 def get_users_data(data:dict) -> list:
     """
@@ -12,3 +12,15 @@ def get_users_data(data:dict) -> list:
     Returns:
         list: users data list
     """
+    inform = []
+    
+    for i in data['results']:
+        inform.append(i['name']['first'])
+        inform.append(i['name']['last'])
+        inform.append(i['phone'])
+    
+    return inform
+    
+data = get_data('randomuser_data.json')
+
+print(get_users_data(data))
